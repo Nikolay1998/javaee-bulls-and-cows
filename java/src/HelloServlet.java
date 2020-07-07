@@ -1,0 +1,33 @@
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+
+
+@WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
+public class HelloServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        /*try (Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost/opencode?serverTimezone=Europe/Moscow&useSSL=false",
+                "root", "password1998")){
+            resp.getWriter().write("Connection success!");
+            PreparedStatement statement = conn.prepareStatement("insert into client value (2, \"name\", \"logfin\", \"password\", 1)");
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            resp.getWriter().write("Error ..." + throwables);
+        }
+
+         */
+        AppDataSource.getDataSource();
+        resp.getWriter().write("Cool");
+    }
+}
