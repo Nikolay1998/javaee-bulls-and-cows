@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="">
+<Context>
     <Resource name="jdbc/opencode" auth="Container"
               type="javax.sql.DataSource" maxActive="100"
               maxIdle="30" maxWait="10000"
-              username="root"
+              username="user1"
               password="password1998"
               driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://localhost/opencode?serverTimezone=Europe/Moscow&amp;useSSL=false"/>
+              url="jdbc:mysql://127.0.0.1:3305/opencode"/>
 </Context>

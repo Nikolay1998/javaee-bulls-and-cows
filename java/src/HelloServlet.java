@@ -1,3 +1,5 @@
+import dao.AppDataSource;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -5,11 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 
 
 @WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
@@ -27,7 +25,14 @@ public class HelloServlet extends HttpServlet {
         }
 
          */
-        AppDataSource.getDataSource();
-        resp.getWriter().write("Cool");
+
+        DataSource ds = AppDataSource.getDataSource();
+        try {
+            ds.getConnection();
+            resp.getWriter().write("Cool");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            throw new RuntimeException("lkmdf");
+        }
     }
 }
