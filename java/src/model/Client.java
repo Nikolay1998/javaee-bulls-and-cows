@@ -6,13 +6,24 @@ public class Client {
     private String login;
     private String password;
     private Double rating;
+    private Integer games;
 
-    public Client(Integer id, String name, String login, String password, Double rating) {
+    public Client(Integer id, String name, String login, String password, Double rating, Integer games) {
         this.id = id;
         this.name = name;
         this.login = login;
         this.password = password;
         this.rating = rating;
+        this.games = games;
+    }
+
+    public Client(Integer id, String name, String login, Double rating, Integer games) {
+        this.id = id;
+        this.name = name;
+        this.login = login;
+        this.rating = rating;
+        this.games = games;
+
     }
 
     public Client(Integer id, String name, String login, Double rating) {
@@ -20,6 +31,14 @@ public class Client {
         this.name = name;
         this.login = login;
         this.rating = rating;
+    }
+
+    public Integer getGames() {
+        return games;
+    }
+
+    public void setGames(Integer games) {
+        this.games = games;
     }
 
     public Client(String name, String login, String password, Double rating) {

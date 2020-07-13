@@ -6,5 +6,5 @@
               username="user1"
               password="password1998"
               driverClassName="com.mysql.jdbc.Driver"
-              url="jdbc:mysql://127.0.0.1:3305/opencode"/>
+              url="jdbc:mysql://localhost:3306/opencode"/>
 </Context>

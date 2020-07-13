@@ -1,4 +1,7 @@
-<%@ page import="model.Client" %><%--
+<%@ page import="model.Client" %>
+<%@ page import="java.util.List" %>
+<%@ page import="dao.DAOFactoryHolder" %>
+<%@ page import="dao.ClientDAO" %><%--
   Created by IntelliJ IDEA.
   User: Николай
   Date: 06.07.2020
@@ -7,8 +10,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+
     Client client = (Client) session.getAttribute("client");
-    if (client == null){
+    if (client == null) {
         response.sendRedirect("login.jsp");
     }
 %>
@@ -17,6 +21,9 @@
     <title>Быки и Коровы</title>
 </head>
 <body>
-$END$
+    <a href="game">Новая игра</a><br>
+    <% if (client != null) { %>
+        Ваш рейтинг: <%=client.getRating()%>
+    <%}%>
 </body>
 </html>
